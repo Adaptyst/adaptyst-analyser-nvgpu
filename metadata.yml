@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 CERN
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: nvgpu
+version: 0.1.0-dev.2025.11a
+short_desc: NVIDIA GPU hardware module.
+min_module_version: [0, 1, 0, 1]
+
+python_dependencies:
+  - treelib
+
+js_url_dependencies:
+  - https://unpkg.com/vis-timeline@8.3.1/dist/vis-timeline-graph2d.min.js
+  - https://unpkg.com/vis-timeline@8.3.1/dist/vis-timeline-graph2d.min.css

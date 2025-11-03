@@ -1,0 +1,75 @@
+/*
+SPDX-FileCopyrightText: 2025 CERN
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+.nvgpu_timeline_window {
+    min-width:1000px;
+    width:1000px;
+    min-height:400px;
+    height:400px;
+
+    .toolbar {
+        flex-direction:column;
+    }
+
+    .nvgpu_timeline {
+        padding:10px;
+    }
+
+    .vis-inner {
+        padding-left:5px !important;
+    }
+
+    .vis-label.vis-nested-group.vis-group-level-unknown-but-gte1 {
+        background: #ffffff !important;
+    }
+
+    .vis-group-level-unknown-but-gte1 {
+        border-top:0;
+        border-left:0;
+        border-right:0;
+    }
+
+    .glossary {
+        font-style:italic;
+    }
+
+    .toolbar_texts {
+        display:flex;
+        flex-direction:column;
+        margin-top:5px;
+        margin-bottom:5px;
+        text-align:center;
+    }
+}
+
+.nvgpu_timeline_menu {
+    .cuda_summary_item {
+        border-top-color:black;
+        border-top-width:4px;
+        border-top-style:double;
+        padding:5px;
+        cursor:default;
+    }
+
+    .cuda_summary {
+        font-size:14px;
+        overflow:auto;
+        flex-grow:1;
+        white-space:nowrap;
+        font-family:Consolas,
+                    ui-monospace,
+                    monospace;
+    }
+
+    .function_name {
+        font-weight:bold;
+    }
+
+    .header_item {
+        background-color:#BBBBBB;
+        padding:5px;
+        cursor:default;
+    }
+}
