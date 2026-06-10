@@ -1,27 +1,42 @@
-# SPDX-FileCopyrightText: 2025 CERN
+# SPDX-FileCopyrightText: 2026 CERN
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import json
-import traceback
-import sys
-from pathlib import Path
+from adaptystanalyser import Module, Identifier
 
 
-def process(storage, identifier, entity, node, data):
-    if 'regions' in data:
-        try:
-            path = Path(storage) / identifier / 'system' \
-                / entity / node / 'nvgpu' / 'regions.json'
+class NvgpuModule(Module):
+    def __init__(self, session_id: Identifier,
+                 entity: str, node: str):
+        self._path = session_id.path / 'system' / entity / \
+            node / 'nvgpu'
+        self._regions = None
 
-            if not path.exists():
+    def get_name(self):
+        return 'nvgpu'
+
+    @Module.needs_loading
+    def get_regions(self):
+        return self._regions
+
+    def process_post_request(self, data):
+        if 'regions' in data:
+            regions = self.get_regions()
+
+            if regions is None:
                 return '', 404
 
-            with path.open(mode='r') as f:
-                regions = json.load(f)
-
             return json.dumps(regions)
-        except Exception:
-            traceback.print_exc()
-            return '', 500
-    else:
-        return '', 400
+        else:
+            return '', 400
+
+    def _load(self):
+        path = self._path / 'regions.json'
+
+        if path.exists():
+            with path.open(mode='r') as f:
+                self._regions = json.load(f)
+
+
+def get_mod_obj(session_id, entity, analysable, options):
+    return NvgpuModule(session_id, entity, analysable)

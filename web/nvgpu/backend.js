@@ -4,9 +4,12 @@
 const MODULE_NAME = 'nvgpu';
 
 class TimelineWindow extends Window {
-    constructor(...args) {
+    constructor(deserialized, ...args) {
         super();
-        this.init(this, ...args);
+
+        if (!deserialized) {
+            this.init(this, ...args);
+        }
     }
 
     getType() {
@@ -198,8 +201,17 @@ class TimelineWindow extends Window {
     }
 }
 
-function createRootWindow(entity_id, node_id, session) {
-    return new TimelineWindow(session, entity_id, node_id, MODULE_NAME, {});
+function createRootWindow(entity_id, analysable_id, session) {
+    return new TimelineWindow(false, session, entity_id,
+                              analysable_id, MODULE_NAME);
 }
 
-export { createRootWindow };
+function getWindowClass(type) {
+    if (type === 'nvgpu_timeline') {
+        return TimelineWindow;
+    } else {
+        return undefined;
+    }
+}
+
+export { createRootWindow, getWindowClass };
