@@ -8,8 +8,8 @@ from adaptystanalyser import Module, Identifier
 class NvgpuModule(Module):
     def __init__(self, session_id: Identifier,
                  entity: str, node: str):
-        self._path = session_id.path / 'system' / entity / \
-            node / 'nvgpu'
+        self._path = session_id.get_detailed_path(entity, node,
+                                                  self.get_name())
         self._regions = None
 
     def get_name(self):
