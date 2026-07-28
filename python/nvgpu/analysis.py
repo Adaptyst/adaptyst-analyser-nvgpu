@@ -30,15 +30,16 @@ class NvgpuModule(Module):
     def get_cuda_api_calls(self, region: str):
         """
         Get CUDA API tracing results for a given code region
-        in form of a summary dictionary of the following structure:
-        {
-          "<CUDA API method name>": {
-            "length": <exact method runtime in ns>,
-            "children": <dictionary of CUDA API calls made
-                         by the method: the format is the same
-                         as for the root>
+        in form of a summary dictionary of the following structure::
+
+          {
+            "<CUDA API method name>": {
+              "length": <exact method runtime in ns>,
+              "children": <dictionary of CUDA API calls made
+                           by the method: the format is the same
+                           as for the root>
+            }
           }
-        }
 
         If the region does not exist, None is returned.
 
@@ -62,19 +63,20 @@ class NvgpuModule(Module):
     def get_regions(self):
         """
         Get CUDA API tracing results in form of a summary
-        dictionary of the following structure:
-        {
-          "<code region>": {
-            "data": {
-              "<CUDA API method name>": {
-                "length": <exact method runtime in ns>,
-                "children": <dictionary of CUDA API calls made
-                             by the method: the format is the same
-                             as for "data">
+        dictionary of the following structure::
+
+          {
+            "<code region>": {
+              "data": {
+                "<CUDA API method name>": {
+                  "length": <exact method runtime in ns>,
+                  "children": <dictionary of CUDA API calls made
+                               by the method: the format is the same
+                               as for "data">
+                }
               }
             }
           }
-        }
         """
         return self._regions
 
