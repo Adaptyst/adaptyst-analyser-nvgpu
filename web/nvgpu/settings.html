@@ -4,6 +4,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
 <div class="margin_bottom setting_item">
+  <label for="timeline_font_size" class="setting_label_left">
+    Default timeline font size (px):
+  </label>
+  <input type="number" name="timeline_font_size"
+         value="12" min="8" max="24" step="1"
+         id="nvgpu_timeline_font_size" />
+</div>
+<div class="margin_bottom setting_item">
   <input type="checkbox" id="nvgpu_always_ms"
          name="always_ms" onchange="">
   <label for="always_ms" class="setting_label_right">Always display runtimes in milliseconds/nanoseconds</label>

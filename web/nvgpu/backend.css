@@ -42,6 +42,32 @@ SPDX-License-Identifier: GPL-3.0-or-later
         margin-bottom:5px;
         text-align:center;
     }
+
+    .nvgpu_timeline_canvas {
+        display:block;
+        width:100%;
+        height:100%;
+    }
+
+    .toolbar_buttons {
+        width:100%;
+        display:flex;
+        gap:5px;
+    }
+
+    .toolbar_buttons_left, .toolbar_buttons_right {
+        display:flex;
+        gap:5px;
+        flex-grow:1;
+    }
+
+    .toolbar_buttons_left {
+        justify-content:flex-start;
+    }
+
+    .toolbar_buttons_right {
+        justify-content:flex-end;
+    }
 }
 
 .nvgpu_timeline_menu {

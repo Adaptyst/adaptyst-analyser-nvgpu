@@ -74,7 +74,11 @@ class NvgpuModule(Module):
                                by the method: the format is the same
                                as for "data">
                 }
-              }
+              },
+              "occurrences": <array of all occurrences of a given
+                              region within the workflow in form of
+                              [X, Y], where X is the exact start timestamp
+                              in ns and Y is the exact length in ns>
             }
           }
         """

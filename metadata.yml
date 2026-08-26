@@ -7,5 +7,4 @@ short_desc: NVIDIA GPU hardware module.
 min_module_version: [0, 1, 0, 1]
 
 js_url_dependencies:
-  - https://unpkg.com/vis-timeline@8.3.1/dist/vis-timeline-graph2d.min.js
-  - https://unpkg.com/vis-timeline@8.3.1/dist/vis-timeline-graph2d.min.css
+  - https://raw.githubusercontent.com/Adaptyst/canvas-timeline/refs/tags/v0.1.0-dev.2026.08a/timeline.js
