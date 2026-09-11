@@ -110,7 +110,7 @@ class TimelineWindow extends Window {
 
                                         let group = {
                                             id: key,
-                                            label: key + ' (' +
+                                            label: '<b>' + key + '</b> (' +
                                                 (cuda_runtime_val / total_length * 100).toFixed(2) + '%)',
                                             level: 0
                                         };
